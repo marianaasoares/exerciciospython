@@ -3,7 +3,6 @@ piano_inicial = [1]*15
 
 def achar_frequencia(lista_separada):
     contador_de_freq = Counter(lista_separada)
-    print(contador_de_freq)
     frequencias = []
     maior_freq = max(contador_de_freq.values())
     for elemento in contador_de_freq.items():
@@ -14,7 +13,6 @@ def achar_frequencia(lista_separada):
 def tocar(piano, acorde):
     lista_separada = piano[acorde[0]:acorde[1]+1]
     f = achar_frequencia(lista_separada)
-    print("f = ", f)
     for elemento in range(acorde[0], acorde[1]+1):
         piano[elemento] = (piano[elemento] + f) % 9
     print("novo piano = ", piano)
@@ -35,6 +33,9 @@ acordes = ((10, 12),
             (11, 13),
             (8, 14),
             (3, 9),)
+piano = piano_inicial
 for acorde in acordes:
-    print(tocar(piano_inicial, acorde))
+    tocar(piano_inicial, acorde)
+for tecla in piano:    
+     print(tecla)
 
